@@ -1,0 +1,70 @@
+{
+  "teachers": [
+    {
+      "id": "1",
+      "firstName": "Elchin",
+      "lastName": "Mammadov"
+    },
+    {
+      "id": "2",
+      "firstName": "Aynur",
+      "lastName": "Huseynova"
+    }
+  ],
+  "subjects": [
+    {
+      "id": "2",
+      "code": "GEO",
+      "name": "Coğrafiya",
+      "gradeLevel": 7,
+      "teacherFirstName": "Aynur",
+      "teacherLastName": "Hüseynova"
+    },
+    {
+      "id": null,
+      "code": "Math",
+      "name": "Math",
+      "gradeLevel": 11,
+      "teacherFirstName": "Ulkar",
+      "teacherLastName": "Jafarli"
+    },
+    {
+      "id": "7c5d",
+      "code": "test",
+      "name": "test",
+      "gradeLevel": 3,
+      "teacherFirstName": "u",
+      "teacherLastName": "h"
+    }
+  ],
+  "students": [
+    {
+      "id": "10001",
+      "firstName": "Nurlan",
+      "lastName": "Aliyev",
+      "gradeLevel": 6
+    },
+    {
+      "id": "10002",
+      "firstName": "Aysel",
+      "lastName": "Quliyeva",
+      "gradeLevel": 7
+    }
+  ],
+  "exams": [
+    {
+      "id": "1",
+      "subjectCode": "MAT",
+      "studentId": 10001,
+      "examDate": "2025-04-15",
+      "score": 8
+    },
+    {
+      "id": "2",
+      "subjectCode": "GEO",
+      "studentId": 10002,
+      "examDate": "2025-04-20",
+      "score": 9
+    }
+  ]
+}
