@@ -21,14 +21,6 @@
       "teacherLastName": "Hüseynova"
     },
     {
-      "id": null,
-      "code": "Math",
-      "name": "Math",
-      "gradeLevel": 11,
-      "teacherFirstName": "Ulkar",
-      "teacherLastName": "Jafarli"
-    },
-    {
       "id": "7c5d",
       "code": "test",
       "name": "test",
