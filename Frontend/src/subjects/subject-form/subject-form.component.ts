@@ -19,7 +19,6 @@ export class SubjectFormComponent implements OnInit{
   id: string = this.activatedRoute.snapshot.paramMap.get('id')!;
 
   subjectForm = new FormGroup({
-    // id: new FormControl(),
     code: new FormControl('', Validators.required),
     name: new FormControl('', Validators.required),
     gradeLevel: new FormControl('', Validators.required),
@@ -35,8 +34,6 @@ export class SubjectFormComponent implements OnInit{
 
   ngOnInit(): void {
     if (this.id) {
-      console.log(this.id);
-      
       this.subjectService.getSubjectById(this.id)
         .pipe(
           first(),
@@ -60,6 +57,8 @@ export class SubjectFormComponent implements OnInit{
       let postData: any = {...this.subjectForm.value};
       postData.id = this.id
   
+      console.log('post Data for edit', postData);
+      
       this.subjectService
         .saveSubject(postData, this.id)
         .pipe(first())
@@ -69,7 +68,7 @@ export class SubjectFormComponent implements OnInit{
           } else {
             // this.notifyService.success();
             this.subjectForm.reset();
-            this.router.navigate(['../'], { relativeTo: this.activatedRoute });
+            this.router.navigate(['../../'], { relativeTo: this.activatedRoute });
           }
         });
     } else {

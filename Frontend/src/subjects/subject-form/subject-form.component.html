@@ -1,99 +1,87 @@
-<div class="container-fluid">
+<div class="container">
     <div class="row">
       <div class="col-md-6">
-        <h2 class="table-title">Create Subject</h2>
-  
+        <h2 class="table-title mt-3">Dərsin əlavə edilməsi</h2>
         <div class="form-contrainer mt-4">
           <form [formGroup]="subjectForm" (ngSubmit)="onSubmit()">
-            <!-- Subject Code -->
-            <div class="form-group">
-              <label class="form-label">Subject Code</label>
+            <div class="form-group mt-3">
+              <label class="form-label">Dərsin kodu</label>
               <input
                 type="text"
                 class="form-control"
-                placeholder="Enter subject code"
+                placeholder="Dərsin kodu"
                 formControlName="code"
                 [ngClass]="{
                   'border-danger': subjectForm.controls.code.errors && formSubmitted
                 }"
               />
               <p class="text-danger" *ngIf="formSubmitted && subjectForm.controls.code.errors">
-                Subject code is required.
+                Dərs kodu boş ola bilməz!
               </p>
             </div>
-  
-            <!-- Subject Name -->
-            <div class="form-group">
-              <label class="form-label">Subject Name</label>
+            <div class="form-group mt-3">
+              <label class="form-label">Dərsin adı</label>
               <input
                 type="text"
                 class="form-control"
-                placeholder="Enter subject name"
+                placeholder="Dərsin adı"
                 formControlName="name"
                 [ngClass]="{
                   'border-danger': subjectForm.controls.name.errors && formSubmitted
                 }"
               />
               <p class="text-danger" *ngIf="formSubmitted && subjectForm.controls.name.errors">
-                Subject name is required.
+                Dərsin adı boş ola bilməz!
               </p>
             </div>
-  
-            <!-- Grade Level -->
-            <div class="form-group">
-              <label class="form-label">Grade Level</label>
+            <div class="form-group mt-3">
+              <label class="form-label">Sinif</label>
               <input
                 type="number"
                 class="form-control"
-                placeholder="Enter grade level"
+                placeholder="Sinif"
                 formControlName="gradeLevel"
                 [ngClass]="{
                   'border-danger': subjectForm.controls.gradeLevel.errors && formSubmitted
                 }"
               />
               <p class="text-danger" *ngIf="formSubmitted && subjectForm.controls.gradeLevel.errors">
-                Grade level is required.
+                Sinif boş ola bilməz!
               </p>
             </div>
-  
-            <!-- Teacher First Name -->
-            <div class="form-group">
-              <label class="form-label">Teacher First Name</label>
+            <div class="form-group mt-3">
+              <label class="form-label">Müəllimin adı</label>
               <input
                 type="text"
                 class="form-control"
-                placeholder="Enter teacher's first name"
+                placeholder="Müəllimin adı"
                 formControlName="teacherFirstName"
                 [ngClass]="{
                   'border-danger': subjectForm.controls.teacherFirstName.errors && formSubmitted
                 }"
               />
               <p class="text-danger" *ngIf="formSubmitted && subjectForm.controls.teacherFirstName.errors">
-                First name is required.
+                Müəllimin adı boş ola bilməz!
               </p>
             </div>
-  
-            <!-- Teacher Last Name -->
-            <div class="form-group">
-              <label class="form-label">Teacher Last Name</label>
+            <div class="form-group mt-3">
+              <label class="form-label">Müəllimin soyadı</label>
               <input
                 type="text"
                 class="form-control"
-                placeholder="Enter teacher's last name"
+                placeholder="Müəllimin soyadı"
                 formControlName="teacherLastName"
                 [ngClass]="{
                   'border-danger': subjectForm.controls.teacherLastName.errors && formSubmitted
                 }"
               />
               <p class="text-danger" *ngIf="formSubmitted && subjectForm.controls.teacherLastName.errors">
-                Last name is required.
+                Müəllimin soyadı boş ola bilməz!
               </p>
             </div>
-  
-            <!-- Save Button -->
             <div>
-              <button type="submit" class="btn btn-new mt-3" color="primary">
-                Save
+              <button type="submit" class="btn btn-primary w-100 mt-3" color="primary">
+                Yadda saxla
               </button>
             </div>
           </form>

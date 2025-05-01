@@ -13,20 +13,20 @@
   ],
   "subjects": [
     {
-      "id": "2",
       "code": "GEO",
       "name": "Coğrafiya",
       "gradeLevel": 7,
-      "teacherFirstName": "Aynur",
-      "teacherLastName": "Hüseynova"
+      "teacherFirstName": "Aynurr",
+      "teacherLastName": "Hüseynova",
+      "id": "2"
     },
     {
-      "id": "7c5d",
-      "code": "test",
-      "name": "test",
-      "gradeLevel": 3,
-      "teacherFirstName": "u",
-      "teacherLastName": "h"
+      "code": "RYZ",
+      "name": "Riyaziyyat",
+      "gradeLevel": 11,
+      "teacherFirstName": "Ülkər ",
+      "teacherLastName": "Cəfərli",
+      "id": "7c5d"
     }
   ],
   "students": [

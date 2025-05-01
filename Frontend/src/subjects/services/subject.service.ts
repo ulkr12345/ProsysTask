@@ -26,7 +26,7 @@ export class SubjectService {
 
   saveSubject(postData: ISubjectData, id: string | null = null): Observable<any> {
     if (id) {
-      return this.httpClient.put(SUBJECT_URLS.CREATE, postData)
+      return this.httpClient.put(SUBJECT_URLS.UPDATE(id), postData)
         .pipe(
           switchMap((response) => {
             const results = (response as IResponseWithResult<ISubjectData>).result ?? [];

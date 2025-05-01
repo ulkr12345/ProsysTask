@@ -1,14 +1,13 @@
 import { Routes } from "@angular/router";
 import { HomeComponent } from "./home.component";
+import { WelcomeComponent } from "./welcome/welcome.component";
 
 export const routes: Routes = [
     {
         path: '', component: HomeComponent,
 
         children: [
-            {
-                path: '', redirectTo: 'projects', pathMatch: 'prefix'
-            },
+            { path: '', component: WelcomeComponent },
             {
                 path: 'subjects',
                 loadChildren: () => import('../subjects/subject.routes').then(m => m.routes)
