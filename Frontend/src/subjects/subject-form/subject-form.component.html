@@ -1,0 +1,104 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <h2 class="table-title">Create Subject</h2>
+  
+        <div class="form-contrainer mt-4">
+          <form [formGroup]="subjectForm" (ngSubmit)="onSubmit()">
+            <!-- Subject Code -->
+            <div class="form-group">
+              <label class="form-label">Subject Code</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter subject code"
+                formControlName="code"
+                [ngClass]="{
+                  'border-danger': subjectForm.controls.code.errors && formSubmitted
+                }"
+              />
+              <p class="text-danger" *ngIf="formSubmitted && subjectForm.controls.code.errors">
+                Subject code is required.
+              </p>
+            </div>
+  
+            <!-- Subject Name -->
+            <div class="form-group">
+              <label class="form-label">Subject Name</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter subject name"
+                formControlName="name"
+                [ngClass]="{
+                  'border-danger': subjectForm.controls.name.errors && formSubmitted
+                }"
+              />
+              <p class="text-danger" *ngIf="formSubmitted && subjectForm.controls.name.errors">
+                Subject name is required.
+              </p>
+            </div>
+  
+            <!-- Grade Level -->
+            <div class="form-group">
+              <label class="form-label">Grade Level</label>
+              <input
+                type="number"
+                class="form-control"
+                placeholder="Enter grade level"
+                formControlName="gradeLevel"
+                [ngClass]="{
+                  'border-danger': subjectForm.controls.gradeLevel.errors && formSubmitted
+                }"
+              />
+              <p class="text-danger" *ngIf="formSubmitted && subjectForm.controls.gradeLevel.errors">
+                Grade level is required.
+              </p>
+            </div>
+  
+            <!-- Teacher First Name -->
+            <div class="form-group">
+              <label class="form-label">Teacher First Name</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter teacher's first name"
+                formControlName="teacherFirstName"
+                [ngClass]="{
+                  'border-danger': subjectForm.controls.teacherFirstName.errors && formSubmitted
+                }"
+              />
+              <p class="text-danger" *ngIf="formSubmitted && subjectForm.controls.teacherFirstName.errors">
+                First name is required.
+              </p>
+            </div>
+  
+            <!-- Teacher Last Name -->
+            <div class="form-group">
+              <label class="form-label">Teacher Last Name</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter teacher's last name"
+                formControlName="teacherLastName"
+                [ngClass]="{
+                  'border-danger': subjectForm.controls.teacherLastName.errors && formSubmitted
+                }"
+              />
+              <p class="text-danger" *ngIf="formSubmitted && subjectForm.controls.teacherLastName.errors">
+                Last name is required.
+              </p>
+            </div>
+  
+            <!-- Save Button -->
+            <div>
+              <button type="submit" class="btn btn-new mt-3" color="primary">
+                Save
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

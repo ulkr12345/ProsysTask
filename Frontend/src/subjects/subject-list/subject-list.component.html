@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row d-flex justify-content-end">
+        <button class="btn btn-primary w-auto my-3" [routerLink]="['/subjects/create']">
+            Yeni dərs əlavə et
+        </button>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <table class="table">
+                <thead class="table-primary">
+                    <tr>
+                        <th>Kod</th>
+                        <th>Dərsin adı</th>
+                        <th>Sinif</th>
+                        <th>Teacher</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let subject of subjectList">
+                        <td>{{ subject.code }}</td>
+                        <td>{{ subject.name }}</td>
+                        <td>{{ subject.gradeLevel }}</td>
+                        <td>{{ subject.teacherFirstName }} {{ subject.teacherLastName }}</td>
+                        <td *ngIf="subject.id">
+                            <div>
+                                <a
+                                    (click)="onDelete(subject.id)"
+                                    class="btn text-danger fw-bold"
+                                    [title]="'Sil'"
+                                >
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                                <a
+                                    class="btn text-primary text-bold"
+                                    [routerLink]="['edit', subject.id]"
+                                    [title]="'Düzəliş'"
+                                >
+                                    <i class="bi bi-pencil me-2"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>              
+        </div>
+    </div>
+</div>
