@@ -15,8 +15,11 @@
                   'border-danger': subjectForm.controls.code.errors && formSubmitted
                 }"
               />
-              <p class="text-danger" *ngIf="formSubmitted && subjectForm.controls.code.errors">
+              <p class="text-danger" *ngIf="formSubmitted && subjectForm.controls.code.errors?.['required']">
                 Dərs kodu boş ola bilməz!
+              </p>
+              <p class="text-danger" *ngIf="formSubmitted && subjectForm.controls.code.errors?.['maxlength']">
+                Dərsin kodu 3 simvoldan çox ola bilməz!
               </p>
             </div>
             <div class="form-group mt-3">
@@ -30,8 +33,11 @@
                   'border-danger': subjectForm.controls.name.errors && formSubmitted
                 }"
               />
-              <p class="text-danger" *ngIf="formSubmitted && subjectForm.controls.name.errors">
+              <p class="text-danger" *ngIf="formSubmitted && subjectForm.controls.name.errors?.['required']">
                 Dərsin adı boş ola bilməz!
+              </p>
+              <p class="text-danger" *ngIf="formSubmitted && subjectForm.controls.name.errors?.['maxlength']">
+                Dərsin adı 30 simvoldan çox ola bilməz!
               </p>
             </div>
             <div class="form-group mt-3">
@@ -45,8 +51,11 @@
                   'border-danger': subjectForm.controls.gradeLevel.errors && formSubmitted
                 }"
               />
-              <p class="text-danger" *ngIf="formSubmitted && subjectForm.controls.gradeLevel.errors">
+              <p class="text-danger" *ngIf="formSubmitted && subjectForm.controls.gradeLevel.errors?.['required']">
                 Sinif boş ola bilməz!
+              </p>
+              <p class="text-danger" *ngIf="formSubmitted && (subjectForm.controls.gradeLevel.errors?.['min'] || subjectForm.controls.gradeLevel.errors?.['max'])">
+                Sinif 1-11 aralığında olmalıdır!
               </p>
             </div>
             <div class="form-group mt-3">
@@ -60,8 +69,11 @@
                   'border-danger': subjectForm.controls.teacherFirstName.errors && formSubmitted
                 }"
               />
-              <p class="text-danger" *ngIf="formSubmitted && subjectForm.controls.teacherFirstName.errors">
+              <p class="text-danger" *ngIf="formSubmitted && subjectForm.controls.teacherFirstName.errors?.['required']">
                 Müəllimin adı boş ola bilməz!
+              </p>
+              <p class="text-danger" *ngIf="formSubmitted && subjectForm.controls.teacherFirstName.errors?.['maxlength']">
+                Müəllimin adı 20 simvoldan çox ola bilməz!
               </p>
             </div>
             <div class="form-group mt-3">
@@ -74,9 +86,13 @@
                 [ngClass]="{
                   'border-danger': subjectForm.controls.teacherLastName.errors && formSubmitted
                 }"
+                [maxlength]="20"
               />
-              <p class="text-danger" *ngIf="formSubmitted && subjectForm.controls.teacherLastName.errors">
+              <p class="text-danger" *ngIf="formSubmitted && subjectForm.controls.teacherLastName.errors?.['required']">
                 Müəllimin soyadı boş ola bilməz!
+              </p>
+              <p class="text-danger" *ngIf="formSubmitted && subjectForm.controls.teacherLastName.errors?.['maxlength']">
+                Müəllimin soyadı 20 simvoldan çox ola bilməz!
               </p>
             </div>
             <div>

@@ -1,1 +1,83 @@
-<p>student-form works!</p>
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h2 class="table-title mt-3">Şagirdin əlavə edilməsi</h2>
+        <div class="form-contrainer mt-4">
+          <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+            
+            <div class="form-group mt-3">
+              <label class="form-label">Şagird nömrəsi</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Şagird nömrəsi"
+                formControlName="no"
+                [ngClass]="{
+                  'border-danger': studentForm.controls.no.errors && formSubmitted
+                }"
+              />
+              <p class="text-danger" *ngIf="formSubmitted && studentForm.controls.no.errors">
+                Şagird nömrəsi boş ola bilməz!
+              </p>
+            </div>
+  
+            <div class="form-group mt-3">
+              <label class="form-label">Ad</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Şagirdin adı"
+                formControlName="firstName"
+                [ngClass]="{
+                  'border-danger': studentForm.controls.firstName.errors && formSubmitted
+                }"
+              />
+              <p class="text-danger" *ngIf="formSubmitted && studentForm.controls.firstName.errors">
+                Ad boş ola bilməz!
+              </p>
+            </div>
+  
+            <div class="form-group mt-3">
+              <label class="form-label">Soyad</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Şagirdin soyadı"
+                formControlName="lastName"
+                [ngClass]="{
+                  'border-danger': studentForm.controls.lastName.errors && formSubmitted
+                }"
+              />
+              <p class="text-danger" *ngIf="formSubmitted && studentForm.controls.lastName.errors">
+                Soyad boş ola bilməz!
+              </p>
+            </div>
+  
+            <div class="form-group mt-3">
+              <label class="form-label">Sinif</label>
+              <input
+                type="number"
+                class="form-control"
+                placeholder="Sinif"
+                formControlName="gradeLevel"
+                [ngClass]="{
+                  'border-danger': studentForm.controls.gradeLevel.errors && formSubmitted
+                }"
+              />
+              <p class="text-danger" *ngIf="formSubmitted && studentForm.controls.gradeLevel.errors">
+                Sinif boş ola bilməz!
+              </p>
+            </div>
+  
+            <div>
+              <button type="submit" class="btn btn-primary w-100 mt-3" color="primary">
+                Yadda saxla
+              </button>
+            </div>
+  
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

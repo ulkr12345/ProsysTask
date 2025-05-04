@@ -19,12 +19,29 @@ export class SubjectFormComponent implements OnInit{
   id: string = this.activatedRoute.snapshot.paramMap.get('id')!;
 
   subjectForm = new FormGroup({
-    code: new FormControl('', Validators.required),
-    name: new FormControl('', Validators.required),
-    gradeLevel: new FormControl('', Validators.required),
-    teacherFirstName: new FormControl('', Validators.required),
-    teacherLastName: new FormControl('', Validators.required)
+    code: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(3)
+    ]),
+    name: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(30)
+    ]),
+    gradeLevel: new FormControl('', [
+      Validators.required,
+      Validators.min(1),       
+      Validators.max(11)       
+    ]),
+    teacherFirstName: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(20)
+    ]),
+    teacherLastName: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(20)
+    ])
   });
+  
 
   constructor(
     private subjectService: SubjectService,

@@ -1,1 +1,83 @@
-<p>exam-form works!</p>
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h2 class="table-title mt-3">İmtahan əlavə et</h2>
+        <div class="form-contrainer mt-4">
+          <form [formGroup]="examForm" (ngSubmit)="onSubmit()">
+            
+            <!-- Subject Select -->
+            <div class="form-group mt-3">
+              <label class="form-label">Fənn</label>
+              <ng-select 
+                class="w-100"
+                [items]="subjectList" 
+                bindLabel="displayLabel" 
+                bindValue="code"
+                formControlName="subjectCode"
+                placeholder="Fənni seçin"
+                [ngClass]="{ 'ng-invalid': examForm.controls.subjectCode.errors && formSubmitted }">
+              </ng-select>
+              <p class="text-danger" *ngIf="formSubmitted && examForm.controls.subjectCode.errors">
+                Fənn seçilməlidir!
+              </p>
+            </div>
+  
+            <!-- Student Select -->
+            <div class="form-group mt-3">
+              <label class="form-label">Şagird</label>
+              <ng-select 
+                class="w-100"
+                [items]="studentList" 
+                bindLabel="displayLabel" 
+                bindValue="no"
+                formControlName="studentNo"
+                placeholder="Şagirdi seçin"
+                [ngClass]="{ 'ng-invalid': examForm.controls.studentNo.errors && formSubmitted }">
+              </ng-select>
+              <p class="text-danger" *ngIf="formSubmitted && examForm.controls.studentNo.errors">
+                Şagird seçilməlidir!
+              </p>
+            </div>
+  
+            <!-- Exam Date -->
+            <div class="form-group mt-3">
+              <label class="form-label">İmtahan tarixi</label>
+              <input 
+                type="date" 
+                class="form-control" 
+                formControlName="examDate"
+                [ngClass]="{ 'border-danger': examForm.controls.examDate.errors && formSubmitted }" />
+              <p class="text-danger" *ngIf="formSubmitted && examForm.controls.examDate.errors">
+                İmtahan tarixi tələb olunur!
+              </p>
+            </div>
+  
+            <!-- Score -->
+            <div class="form-group mt-3">
+              <label class="form-label">Qiymət</label>
+              <input 
+                type="number" 
+                min="1" 
+                max="5" 
+                class="form-control" 
+                placeholder="Qiymət (1-5)"
+                formControlName="score"
+                [ngClass]="{ 'border-danger': examForm.controls.score.errors && formSubmitted }" />
+              <p class="text-danger" *ngIf="formSubmitted && examForm.controls.score.errors">
+                Qiymət düzgün daxil edilməlidir!
+              </p>
+            </div>
+  
+            <!-- Submit Button -->
+            <div>
+              <button type="submit" class="btn btn-primary w-100 mt-3">
+                Yadda saxla
+              </button>
+            </div>
+  
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

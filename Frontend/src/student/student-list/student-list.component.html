@@ -1,1 +1,53 @@
-<p>student-list works!</p>
+<div class="container">
+    <div class="row">
+      <div class="col-12 d-flex justify-content-end">
+        <button class="btn btn-primary w-auto my-3" [routerLink]="['/students/create']">
+          Yeni şagird əlavə et
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class="table-primary">
+              <tr>
+                <th>No</th>
+                <th>Ad</th>
+                <th>Soyad</th>
+                <th>Sinif</th>
+                <th>Əməliyyatlar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let student of studentList">
+                <td>{{ student.no }}</td>
+                <td>{{ student.firstName }}</td>
+                <td>{{ student.lastName }}</td>
+                <td>{{ student.gradeLevel }}</td>
+                <td *ngIf="student.id">
+                  <div>
+                    <a
+                      (click)="onDelete(student.id)"
+                      class="btn text-danger fw-bold"
+                      [title]="'Sil'"
+                    >
+                      <i class="bi bi-trash"></i>
+                    </a>
+                    <a
+                      class="btn text-primary fw-bold"
+                      [routerLink]="['edit', student.id]"
+                      [title]="'Düzəliş'"
+                    >
+                      <i class="bi bi-pencil me-2"></i>
+                    </a>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  

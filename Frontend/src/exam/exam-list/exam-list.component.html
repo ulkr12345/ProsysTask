@@ -1,1 +1,46 @@
-<p>exam-list works!</p>
+<div class="container">
+    <div class="row">
+      <div class="col-12 d-flex justify-content-end">
+        <button class="btn btn-primary w-auto my-3" [routerLink]="['/exams/create']">
+          Yeni imtahan əlavə et
+        </button>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-12">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class="table-primary">
+              <tr>
+                <th>Şagird</th>
+                <th>Dərs</th>
+                <th>Tarix</th>
+                <th>Qiymət</th>
+                <th>Əməliyyatlar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let exam of examList">
+                  <td>{{ exam.studentNo }}</td>
+                  <td>{{ exam.subjectCode }}</td>
+                  <td>{{ exam.examDate | date: 'dd.MM.yyyy' }}</td>
+                  <td>{{ exam.score }}</td>
+                  <td *ngIf="exam.id">
+                    <div>
+                      <a (click)="onDelete(exam.id)" class="btn text-danger fw-bold" [title]="'Sil'">
+                        <i class="bi bi-trash"></i>
+                      </a>
+                      <a class="btn text-primary text-bold" [routerLink]="['edit', exam.id]" [title]="'Düzəliş'">
+                        <i class="bi bi-pencil me-2"></i>
+                      </a>
+                    </div>
+                  </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
