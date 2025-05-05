@@ -27,7 +27,7 @@ export class ExamFormComponent implements OnInit {
     subjectCode: new FormControl('', Validators.required),
     studentNo: new FormControl('', Validators.required),
     examDate: new FormControl('', Validators.required),
-    score: new FormControl('', Validators.required)
+    score: new FormControl('', [Validators.required, Validators.min(2), Validators.max(5)])
   });
 
   constructor(

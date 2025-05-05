@@ -18,9 +18,9 @@ export class StudentFormComponent implements OnInit {
   id: string = this.activatedRoute.snapshot.paramMap.get('id')!;
 
   studentForm = new FormGroup({
-    no: new FormControl('', Validators.required),
-    firstName: new FormControl('', Validators.required),
-    lastName: new FormControl('', Validators.required),
+    no: new FormControl('', [Validators.required, Validators.maxLength(5)]),
+    firstName: new FormControl('', [Validators.required, Validators.maxLength(30)]),
+    lastName: new FormControl('', [Validators.required, Validators.maxLength(30)]),
     gradeLevel: new FormControl('', [Validators.required, Validators.min(1), Validators.max(11)])
   });
 

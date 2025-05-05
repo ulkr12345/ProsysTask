@@ -5,7 +5,6 @@
         <div class="form-contrainer mt-4">
           <form [formGroup]="examForm" (ngSubmit)="onSubmit()">
             
-            <!-- Subject Select -->
             <div class="form-group mt-3">
               <label class="form-label">Fənn</label>
               <ng-select 
@@ -14,15 +13,14 @@
                 bindLabel="displayLabel" 
                 bindValue="code"
                 formControlName="subjectCode"
-                placeholder="Fənni seçin"
-                [ngClass]="{ 'ng-invalid': examForm.controls.subjectCode.errors && formSubmitted }">
+                [clearable]="!!examForm.get('subjectCode')?.value"
+                [ngClass]="{ 'border-red': examForm.controls.subjectCode.errors && formSubmitted }">
               </ng-select>
               <p class="text-danger" *ngIf="formSubmitted && examForm.controls.subjectCode.errors">
                 Fənn seçilməlidir!
               </p>
             </div>
-  
-            <!-- Student Select -->
+
             <div class="form-group mt-3">
               <label class="form-label">Şagird</label>
               <ng-select 
@@ -31,15 +29,14 @@
                 bindLabel="displayLabel" 
                 bindValue="no"
                 formControlName="studentNo"
-                placeholder="Şagirdi seçin"
-                [ngClass]="{ 'ng-invalid': examForm.controls.studentNo.errors && formSubmitted }">
+                [clearable]="!!examForm.get('studentNo')?.value"
+                [ngClass]="{ 'border-red': examForm.controls.studentNo.errors && formSubmitted }">
               </ng-select>
               <p class="text-danger" *ngIf="formSubmitted && examForm.controls.studentNo.errors">
                 Şagird seçilməlidir!
               </p>
             </div>
   
-            <!-- Exam Date -->
             <div class="form-group mt-3">
               <label class="form-label">İmtahan tarixi</label>
               <input 
@@ -52,23 +49,22 @@
               </p>
             </div>
   
-            <!-- Score -->
             <div class="form-group mt-3">
               <label class="form-label">Qiymət</label>
               <input 
                 type="number" 
-                min="1" 
-                max="5" 
                 class="form-control" 
-                placeholder="Qiymət (1-5)"
+                placeholder="Qiymət (2-5)"
                 formControlName="score"
                 [ngClass]="{ 'border-danger': examForm.controls.score.errors && formSubmitted }" />
-              <p class="text-danger" *ngIf="formSubmitted && examForm.controls.score.errors">
-                Qiymət düzgün daxil edilməlidir!
+              <p class="text-danger" *ngIf="formSubmitted && examForm.controls.score.errors?.['required']">
+                Qiymət tələb olunur!
+              </p>
+              <p class="text-danger" *ngIf="formSubmitted && (examForm.controls.score.errors?.['min'] || examForm.controls.score.errors?.['max'])">
+                Qiymət 2-5 aralığında olmalıdır!
               </p>
             </div>
   
-            <!-- Submit Button -->
             <div>
               <button type="submit" class="btn btn-primary w-100 mt-3">
                 Yadda saxla

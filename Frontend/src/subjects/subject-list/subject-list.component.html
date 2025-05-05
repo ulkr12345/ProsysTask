@@ -19,7 +19,7 @@
                             <th>Əməliyyatlar</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody *ngIf="subjectList.length > 0">
                         <tr *ngFor="let subject of subjectList">
                             <td>{{ subject.code }}</td>
                             <td>{{ subject.name }}</td>
@@ -46,6 +46,7 @@
                         </tr>
                     </tbody>
                 </table>  
+                <p *ngIf="subjectList.length === 0" class="text-center fw-bold">Məlumat yoxdur!</p>
             </div>            
         </div>
     </div>

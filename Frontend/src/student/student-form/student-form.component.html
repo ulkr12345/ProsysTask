@@ -16,8 +16,11 @@
                   'border-danger': studentForm.controls.no.errors && formSubmitted
                 }"
               />
-              <p class="text-danger" *ngIf="formSubmitted && studentForm.controls.no.errors">
+              <p class="text-danger" *ngIf="formSubmitted && studentForm.controls.no.errors?.['required']">
                 Şagird nömrəsi boş ola bilməz!
+              </p>
+              <p class="text-danger" *ngIf="formSubmitted && studentForm.controls.no.errors?.['maxlength']">
+                Şagird nömrəsi 5 simvoldan çox bilməz!
               </p>
             </div>
   
@@ -32,8 +35,11 @@
                   'border-danger': studentForm.controls.firstName.errors && formSubmitted
                 }"
               />
-              <p class="text-danger" *ngIf="formSubmitted && studentForm.controls.firstName.errors">
+              <p class="text-danger" *ngIf="formSubmitted && studentForm.controls.firstName.errors?.['required']">
                 Ad boş ola bilməz!
+              </p>
+              <p class="text-danger" *ngIf="formSubmitted && studentForm.controls.lastName.errors?.['maxlength']">
+                Ad 30 simvoldan çox ola bilməz!
               </p>
             </div>
   
@@ -48,8 +54,11 @@
                   'border-danger': studentForm.controls.lastName.errors && formSubmitted
                 }"
               />
-              <p class="text-danger" *ngIf="formSubmitted && studentForm.controls.lastName.errors">
+              <p class="text-danger" *ngIf="formSubmitted && studentForm.controls.lastName.errors?.['required']">
                 Soyad boş ola bilməz!
+              </p>
+              <p class="text-danger" *ngIf="formSubmitted && studentForm.controls.lastName.errors?.['maxlength']">
+                Soyad 30 simvoldan çox ola bilməz!
               </p>
             </div>
   
@@ -64,8 +73,11 @@
                   'border-danger': studentForm.controls.gradeLevel.errors && formSubmitted
                 }"
               />
-              <p class="text-danger" *ngIf="formSubmitted && studentForm.controls.gradeLevel.errors">
+              <p class="text-danger" *ngIf="formSubmitted && studentForm.controls.gradeLevel.errors?.['required']">
                 Sinif boş ola bilməz!
+              </p>
+              <p class="text-danger" *ngIf="formSubmitted && (studentForm.controls.gradeLevel.errors?.['min'] || studentForm.controls.gradeLevel.errors?.['max'])">
+                Sinif 1-11 aralığında olmalıdır!
               </p>
             </div>
   
